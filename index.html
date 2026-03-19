@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kohinoor Bites Pizza &amp; More | Rancho Cucamonga</title>
+  <meta name="description" content="Kohinoor Bites Pizza &amp; More in Rancho Cucamonga, CA. Indian fusion pizza, chaat, wings, pasta, shakes, mojitos, desserts and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0f1b31;
+      --card: rgba(10, 20, 38, 0.92);
+      --line: rgba(255,255,255,0.08);
+      --gold: #d6ad47;
+      --gold-soft: rgba(214,173,71,0.16);
+      --diamond: #78dbff;
+      --pink: #ff5ecf;
+      --text: #f6f2ea;
+      --muted: #c1c8d9;
+      --max: 1180px;
+      --shadow: 0 22px 48px rgba(0,0,0,0.45);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Poppins, system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(120,219,255,0.09), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(255,94,207,0.10), transparent 26%),
+        linear-gradient(180deg, #08101d 0%, #050b15 100%);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .container { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(6, 11, 21, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 12px 0;
+    }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .brand img {
+      width: 54px; height: 54px; object-fit: cover; border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(120,219,255,0.18), 0 0 28px rgba(120,219,255,0.38);
+    }
+    .brand-title { display:flex; flex-direction:column; line-height:1.1; }
+    .brand-title strong {
+      font-family: Cinzel, serif; letter-spacing: .08em; font-size: 1rem;
+    }
+    .brand-title span {
+      color: var(--gold); font-size: .72rem; text-transform: uppercase; letter-spacing: .18em;
+    }
+    .nav-links { display:flex; gap: 18px; flex-wrap:wrap; }
+    .nav-links a {
+      text-decoration:none; color: var(--muted); font-size: .95rem;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
+      overflow: clip;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(3,8,15,0.90) 0%, rgba(3,8,15,0.74) 42%, rgba(3,8,15,0.58) 100%),
+        url('assets/interior.jpeg') center/cover no-repeat;
+      filter: saturate(1.05);
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(214,173,71,0.13), transparent 18%),
+        radial-gradient(circle at 78% 24%, rgba(120,219,255,0.13), transparent 22%),
+        linear-gradient(180deg, transparent 68%, #050b15 100%);
+      pointer-events:none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display:grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items:center;
+      padding: 52px 0 60px;
+    }
+    .hero-copy { max-width: 720px; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 14px; border:1px solid rgba(214,173,71,0.28); border-radius: 999px;
+      background: rgba(8,15,29,0.65); color: var(--gold); font-size: .78rem; letter-spacing:.18em; text-transform:uppercase;
+    }
+    h1 {
+      margin: 18px 0 14px; font-family: Cinzel, serif; line-height: 1.02;
+      font-size: clamp(2.5rem, 5.4vw, 5rem);
+      letter-spacing: .04em;
+      text-wrap: balance;
+    }
+    .highlight {
+      background: linear-gradient(90deg, var(--diamond), #fff 20%, var(--pink) 95%);
+      -webkit-background-clip: text; background-clip:text; color:transparent;
+      text-shadow: 0 0 22px rgba(120,219,255,.18);
+    }
+    .hero p { color: var(--muted); max-width: 650px; font-size: 1.03rem; }
+    .hero-badges { display:flex; flex-wrap:wrap; gap:10px; margin: 22px 0 28px; }
+    .pill {
+      padding: 8px 12px; border-radius: 999px; font-size: .85rem;
+      background: rgba(9,19,36,0.86); color: var(--muted); border:1px solid var(--line);
+    }
+    .cta-row { display:flex; flex-wrap:wrap; gap:14px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 13px 20px; border-radius: 999px; border:1px solid transparent;
+      text-decoration:none; font-weight:600; transition: .2s ease; cursor:pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #f1d088 35%, var(--pink) 96%);
+      color:#1c1202; box-shadow: 0 16px 30px rgba(0,0,0,.24);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-secondary {
+      background: rgba(10,20,38,0.72); color: var(--text); border-color: rgba(120,219,255,0.22);
+    }
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(9,18,34,0.90), rgba(7,14,27,0.88));
+      border:1px solid rgba(255,255,255,0.07);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 22px;
+      overflow:hidden;
+    }
+    .hero-card::before {
+      content:""; position:absolute; inset:auto -60px -60px auto; width:180px; height:180px; border-radius:50%;
+      background: radial-gradient(circle, rgba(255,94,207,.18), transparent 70%);
+    }
+    .hero-card .logo-wrap {
+      display:grid; place-items:center; background: radial-gradient(circle, rgba(120,219,255,0.08), transparent 65%);
+      border-radius: 24px; padding: 12px;
+    }
+    .hero-card .logo-wrap img { max-height: 260px; object-fit: contain; }
+    .hero-card small { color: var(--gold); text-transform: uppercase; letter-spacing:.15em; }
+    .hero-card h3 { margin: 10px 0 8px; font-family: Cinzel, serif; font-size: 1.35rem; }
+    .hero-card p { margin:0; color: var(--muted); font-size: .95rem; }
+
+    section { padding: 72px 0; }
+    .section-title {
+      margin: 0 0 10px; font-family: Cinzel, serif; font-size: clamp(2rem, 3vw, 2.8rem); text-align:center;
+      letter-spacing:.06em;
+    }
+    .section-title span { color: var(--gold); }
+    .section-sub { max-width: 760px; margin: 0 auto 34px; text-align:center; color: var(--muted); }
+
+    .intro-grid, .feature-grid, .gallery-grid, .contact-grid, .showcase-grid {
+      display:grid; gap: 22px;
+    }
+    .intro-grid { grid-template-columns: 1.15fr .85fr; align-items:center; }
+    .feature-grid { grid-template-columns: repeat(4, 1fr); }
+    .showcase-grid { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid { grid-template-columns: 1.1fr .9fr .9fr; grid-auto-rows: 260px; }
+    .contact-grid { grid-template-columns: .95fr 1.05fr; align-items:start; }
+
+    .card {
+      background: var(--card); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .about-card, .feature, .contact-card, .menu-wrap, .form-card, .special-banner { padding: 24px; }
+    .about-card p, .feature p, .contact-card p, .special-banner p { color: var(--muted); }
+    .royal-line {
+      width: 88px; height: 3px; border-radius:999px; margin: 14px 0 20px;
+      background: linear-gradient(90deg, var(--gold), var(--pink), var(--diamond));
+    }
+
+    .feature { position:relative; overflow:hidden; }
+    .feature h3 { margin: 6px 0 6px; font-size: 1.08rem; }
+    .feature .icon { font-size: 1.35rem; }
+
+    .showcase-card {
+      overflow:hidden;
+      background: var(--card); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .showcase-card img { height: 250px; width:100%; object-fit:cover; }
+    .showcase-card .body { padding: 18px 18px 20px; }
+    .showcase-card h3 { margin:0 0 6px; font-size: 1.08rem; }
+    .showcase-card p { margin:0; color: var(--muted); font-size:.94rem; }
+
+    .menu-wrap {
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(11,22,43,.96), rgba(8,15,29,.96));
+    }
+    .menu-topnote {
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+      margin-bottom: 24px; color: var(--muted); font-size: .92rem;
+    }
+    .menu-pill { border:1px solid rgba(214,173,71,0.25); padding: 8px 12px; border-radius:999px; background:var(--gold-soft); }
+    .menu-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .menu-col { display:grid; gap: 18px; }
+    .menu-section {
+      padding: 18px 18px 16px;
+      border-radius: 18px; border:1px solid var(--line); background: rgba(255,255,255,0.02);
+    }
+    .menu-section h3 {
+      margin:0 0 10px; font-family: Cinzel, serif; color: var(--gold); letter-spacing:.05em; font-size: 1.12rem;
+    }
+    .menu-section h4 {
+      margin: 16px 0 8px; color: var(--diamond); font-size: .95rem; text-transform: uppercase; letter-spacing: .08em;
+    }
+    .menu-list { display:grid; gap: 10px; }
+    .item { padding-bottom: 10px; border-bottom:1px dashed rgba(255,255,255,0.08); }
+    .item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .item-head { display:flex; gap:10px; justify-content:space-between; align-items:baseline; }
+    .item strong { font-size: .96rem; }
+    .price { color: var(--pink); white-space:nowrap; font-weight:600; font-size:.92rem; }
+    .item p { margin: 3px 0 0; color: var(--muted); font-size: .85rem; }
+    .tagline { color: var(--gold); font-size: .76rem; text-transform:uppercase; letter-spacing:.12em; }
+
+    .gallery-grid .tile {
+      position:relative; overflow:hidden; border-radius: 22px; border:1px solid var(--line); box-shadow: var(--shadow);
+      min-height: 0;
+    }
+    .gallery-grid .tile img { width:100%; height:100%; object-fit:cover; }
+    .gallery-grid .tile.large { grid-row: span 2; }
+    .gallery-grid .tile::after {
+      content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent 45%, rgba(4,9,18,.6));
+    }
+    .gallery-grid .caption { position:absolute; left:16px; bottom:14px; z-index:2; font-weight:600; text-shadow: 0 6px 16px rgba(0,0,0,.4); }
+
+    .contact-card h3, .form-card h3 { margin:0 0 10px; font-family:Cinzel, serif; font-size:1.3rem; }
+    .contact-card .lineitem { margin: 0 0 12px; color: var(--muted); }
+    .contact-card .label { color: var(--gold); font-weight:600; display:block; margin-bottom:3px; }
+    iframe.map { width:100%; height:240px; border:0; border-radius: 18px; margin-top: 14px; }
+    .form-card form { display:grid; gap: 12px; }
+    .row2 { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+    input, textarea, select {
+      width:100%; border:1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: var(--text);
+      padding: 13px 14px; border-radius: 14px; font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #9aa4b8; }
+
+    .footer { border-top: 1px solid var(--line); padding: 26px 0 34px; color: var(--muted); }
+    .footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start; }
+    .footer a { color: var(--gold); text-decoration:none; }
+    .credit-box { text-align:right; }
+    .credit-box .small { font-size:.8rem; opacity:.85; }
+
+    .special-banner {
+      display:flex; align-items:center; justify-content:space-between; gap:18px; margin-top: 22px;
+      background: linear-gradient(90deg, rgba(214,173,71,0.12), rgba(255,94,207,0.1), rgba(120,219,255,0.08));
+    }
+    .special-banner h3 { margin:0; font-family:Cinzel, serif; }
+
+    @media (max-width: 1050px) {
+      .hero-inner, .intro-grid, .contact-grid, .menu-grid, .feature-grid, .showcase-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid .tile.large { grid-row: span 1; }
+      .nav-links { display:none; }
+      .credit-box { text-align:left; }
+    }
+    @media (max-width: 720px) {
+      .hero { min-height: auto; }
+      .hero-inner { padding: 34px 0 40px; }
+      .row2, .gallery-grid { grid-template-columns: 1fr; }
+      .feature-grid, .showcase-grid { gap:16px; }
+      .menu-wrap, .about-card, .feature, .contact-card, .form-card, .special-banner { padding: 18px; }
+      .special-banner { flex-direction:column; align-items:flex-start; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <img src="assets/logo.jpeg" alt="Kohinoor Bites logo" />
+        <span class="brand-title">
+          <strong>KOHINOOR BITES</strong>
+          <span>Pizza &amp; More</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#specials">Highlights</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">KOHINOOR OF DESI PIZZA</div>
+        <h1><span class="highlight">KOHINOOR BITES</span><br>Pizza &amp; More</h1>
+        <p>
+          A royal Indian touch on California comfort food — fusion pizzas, chaat, pasta, wings, shakes and mojitos served in a neon-glow space at Rancho Cucamonga.
+        </p>
+        <div class="hero-badges">
+          <span class="pill">Indian Fusion Pizza</span>
+          <span class="pill">Chaat &amp; Snacks</span>
+          <span class="pill">Veg &amp; Non‑Veg Options</span>
+          <span class="pill">Family Feast Available</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#menu">Explore Menu</a>
+          <a class="btn btn-secondary" href="tel:+19092449752">Call (909) 244-9752</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/kohinoor_bitezz?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <small>Royal desi, neon modern</small>
+        <div class="logo-wrap">
+          <img src="assets/logo.jpeg" alt="Kohinoor Bites neon logo" />
+        </div>
+        <h3>Indian Pizza Like Never Before</h3>
+        <p>
+          Maharaja-style mood, diamond glow branding, and food built for cravings — from Achari Gobi Pizza to Oreo Shakes.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container intro-grid">
+      <div class="about-card card">
+        <div class="tagline">Rancho Cucamonga • California</div>
+        <h2 class="section-title" style="text-align:left;margin-top:8px;">An <span>Indian touch</span> with a California bite</h2>
+        <div class="royal-line"></div>
+        <p>
+          Kohinoor Bites Pizza &amp; More blends desi flavor with crowd-favorite comfort food. The vibe is bold, modern and premium — dark interiors, warm lights, neon glow, and menu items that feel familiar but hit differently.
+        </p>
+        <p>
+          That means crisp pizzas loaded with butter chicken, achari gobi, paneer, pesto and curry flavors, plus chaat, wings, pasta, shakes, mojitos and desserts. It is made for families, friend groups and anyone chasing real flavor.
+        </p>
+        <div class="cta-row" style="margin-top:18px;">
+          <a class="btn btn-primary" href="https://share.google/07hbToLA1qEapYnTR" target="_blank" rel="noopener">Open Google Location</a>
+        </div>
+      </div>
+      <div class="showcase-card">
+        <img src="assets/interior.jpeg" alt="Kohinoor Bites restaurant interior" />
+        <div class="body">
+          <h3>Signature ambience</h3>
+          <p>Dark luxe interiors, marble tables, glowing sign and a clean dine‑in feel that matches the premium Kohinoor brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specials">
+    <div class="container">
+      <h2 class="section-title">Brand <span>highlights</span></h2>
+      <p class="section-sub">Built from your logo, your colors, your interior and your actual food photos — not a generic restaurant template.</p>
+      <div class="feature-grid">
+        <div class="feature card"><div class="icon">💎</div><h3>Kohinoor theme</h3><p>Diamond blue glow, royal gold accents, pink neon energy and a dark premium background.</p></div>
+        <div class="feature card"><div class="icon">🍕</div><h3>Fusion-first menu</h3><p>Paneer, tandoori, achari, curry, pesto and classic toppings all in one lineup.</p></div>
+        <div class="feature card"><div class="icon">📸</div><h3>Real food visuals</h3><p>Your pizza, pasta, shake and interior photos make the site feel authentic from the first scroll.</p></div>
+        <div class="feature card"><div class="icon">📍</div><h3>Easy to find</h3><p>Click-to-call, Google location link, Instagram and a booking form that routes requests to your email.</p></div>
+      </div>
+
+      <div class="showcase-grid" style="margin-top:22px;">
+        <article class="showcase-card"><img src="assets/featured-pizza.jpeg" alt="Featured pizza at Kohinoor Bites" /><div class="body"><h3>Loaded signature pizza</h3><p>Indian herbs, fresh cilantro, rich cheese pull and bold topping flow — exactly the kind of hero visual this brand needs.</p></div></article>
+        <article class="showcase-card"><img src="assets/pasta.jpeg" alt="Pesto chicken pasta at Kohinoor Bites" /><div class="body"><h3>Pesto chicken pasta</h3><p>Looks bold, fresh and handcrafted — perfect for showing range beyond pizza.</p></div></article>
+        <article class="showcase-card"><img src="assets/shake.jpeg" alt="Oreo shake at Kohinoor Bites" /><div class="body"><h3>Shake &amp; dessert energy</h3><p>Instagrammable presentation that sells cravings fast — exactly what your drinks section should lean on.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <h2 class="section-title">Our Signature <span>menu</span></h2>
+      <p class="section-sub">Explore our Indian fusion pizzas, chaat, wings, pasta, shakes, mojitos and more — crafted fresh daily at Kohinoor Bites.</p>
+      <div class="menu-wrap card">
+        <div class="menu-topnote">
+          <span class="menu-pill">Pizza Sizes: Small $17.99 • Medium $19.99 • Large $21.99 • Extra Large $28.99</span>
+          <span class="menu-pill">Crust Options: Regular • Thin • Gluten-Free (Large +$2.45) • Cauliflower (Small/Medium +$2.45)</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-col">
+            <div class="menu-section">
+              <h3>Chaat</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Golgappe (6 pcs)</strong><span class="price">$7.99</span></div><p>Crispy hollow puris with spiced mashed potatoes and chickpeas, served with tangy tamarind water and mint water.</p></div>
+                <div class="item"><div class="item-head"><strong>Dahi Golgappe (6 pcs)</strong><span class="price">$7.99</span></div><p>Crispy golgappe stuffed with savory potato filling, topped with chilled yogurt, sweet tamarind chutney and mild spices.</p></div>
+                <div class="item"><div class="item-head"><strong>Bhelpuri</strong><span class="price">$7.99</span></div><p>A classic Indian street-food mix of puffed rice, potatoes, onions, chutneys and spices.</p></div>
+                <div class="item"><div class="item-head"><strong>Aloo Tikki</strong><span class="price">$8.99</span></div><p>Golden-fried spiced potato patties served with mint and tamarind chutneys, yogurt and onions.</p></div>
+                <div class="item"><div class="item-head"><strong>Dahi Bhalle</strong><span class="price">$9.99</span></div><p>Soft lentil dumplings soaked in creamy yogurt, topped with tamarind, mint and aromatic spices.</p></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Salad</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Fresh Veggie Salad</strong><span class="price">$5.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Chicken Salad</strong><span class="price">$7.99</span></div></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Appetizers &amp; Sides</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Desi Sticks</strong><span class="price">$10.99</span></div><p>Pineapple, jalapeños, onions and cheese.</p></div>
+                <div class="item"><div class="item-head"><strong>Onion Rings</strong><span class="price">$7.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Mozzarella Sticks</strong><span class="price">$8.95</span></div></div>
+                <div class="item"><div class="item-head"><strong>Garlic Bread with Cheese</strong><span class="price">$5.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Garlic Butter Knots</strong><span class="price">3 pcs $4.20 • 6 pcs $8.40 • 12 pcs $16.80</span></div></div>
+                <div class="item"><div class="item-head"><strong>Masala Fries</strong><span class="price">$7.49</span></div></div>
+                <div class="item"><div class="item-head"><strong>Masala Fish</strong><span class="price">$15.99</span></div></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Pasta</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>KB Special Veggie Pasta</strong><span class="price">$10.99</span></div><p>Pasta sauce, onions, tomatoes, green bell peppers, broccoli, corn and whipping cream.</p></div>
+                <div class="item"><div class="item-head"><strong>Chicken Pasta</strong><span class="price">$12.99</span></div><p>Pesto sauce, onions, tomatoes, green bell peppers, whipping cream and chicken.</p></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Wings</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Chicken Wings</strong><span class="price">8 pcs $12.99 • 16 pcs $23.99 • 24 pcs $34.49</span></div><p>Available with bone or boneless. Sauces: BBQ, Hot Sauce, Sweet &amp; Chilli.</p></div>
+                <div class="item"><div class="item-head"><strong>Tandoori Wings</strong><span class="price">Included in wing pricing</span></div><p>Served with mint sauce.</p></div>
+                <div class="item"><div class="item-head"><strong>Achari Wings</strong><span class="price">Included in wing pricing</span></div><p>Served with mint sauce.</p></div>
+                <div class="item"><div class="item-head"><strong>Cauliflower Wings (Chipotle Sauce)</strong><span class="price">$10.99</span></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-col">
+            <div class="menu-section">
+              <h3>Vegetarian Pizzas</h3>
+              <h4>Cheese Pizza Special Pricing</h4>
+              <div class="menu-list"><div class="item"><div class="item-head"><strong>Cheese Pizza</strong><span class="price">S $8.99 • M $13.99 • L $17.99 • XL $21.99</span></div><p>Red sauce, mozzarella cheese and oregano.</p></div></div>
+              <h4>Signature Veg Lineup</h4>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>KB Veggie Special</strong><span class="price">By size</span></div><p>Red sauce, mushrooms, onions, tomatoes, green bell pepper, jalapeños, black olives, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Punjabi Tadka</strong><span class="price">By size</span></div><p>Red sauce, chutney, onions, tomatoes, green bell pepper, jalapeños, black olives, paneer, corn, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Malai Paneer</strong><span class="price">By size</span></div><p>Malai sauce, onions, tomatoes, green bell pepper, paneer, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Shahi Paneer</strong><span class="price">By size</span></div><p>Shahi paneer sauce, onions, tomatoes, green bell pepper, paneer, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Tandoori Paneer</strong><span class="price">By size</span></div><p>Creamy garlic sauce, onions, tomatoes, green bell pepper, tandoori paneer, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Masala Curry</strong><span class="price">By size</span></div><p>Curry sauce, onions, tomatoes, green bell pepper, mushrooms, olives, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Achari Gobi</strong><span class="price">By size</span></div><p>White sauce, onions, tomatoes, achari gobi and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Pesto Delight</strong><span class="price">By size</span></div><p>Pesto sauce, onions, tomatoes, lettuce, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Corn &amp; Jalapeños</strong><span class="price">By size</span></div><p>Chipotle, cheese, corn, jalapeños and ranch drizzle.</p></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Non‑Vegetarian Pizzas</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Pepperoni Pizza</strong><span class="price">S $8.99 • M $14.99 • L $18.99 • XL $25.99</span></div><p>Red sauce, mozzarella, oregano and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Tandoori Chicken Pizza</strong><span class="price">By size</span></div><p>Creamy garlic sauce, green bell pepper, onions, tomatoes, tandoori chicken, green onion, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Chicken Tikka Pizza</strong><span class="price">By size</span></div><p>Creamy garlic sauce, onions, tomatoes, green bell pepper, chicken, cilantro, green onion and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Butter Chicken Pizza</strong><span class="price">By size</span></div><p>Butter sauce, cheese, onions, tomatoes, green bell pepper, chicken, cilantro, green onion and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Malai Chicken Pizza</strong><span class="price">By size</span></div><p>Malai sauce, cheese, onions, tomatoes, green bell pepper, malai chicken, cilantro, green onion and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Hawaiian Pizza</strong><span class="price">By size</span></div><p>Red sauce, cheese, ham, pineapple and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Pesto Chicken Pizza</strong><span class="price">By size</span></div><p>Pesto sauce, cheese, onions, tomatoes, chicken and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Lamb Kabab Pizza</strong><span class="price">By size</span></div><p>Creamy garlic sauce, onions, cheese, lamb kabab, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Achari Chicken Pizza</strong><span class="price">By size</span></div><p>Creamy garlic sauce, onions, cheese, tomatoes, achari chicken and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>Curry Chicken Pizza</strong><span class="price">By size</span></div><p>Curry sauce, onions, tomatoes, green bell pepper, mushrooms, olives, chicken, cilantro and ranch drizzle.</p></div>
+                <div class="item"><div class="item-head"><strong>All Meat Combination</strong><span class="price">By size</span></div><p>Red sauce, cheese, ham, salami, pepperoni, beef, sausages and ranch drizzle.</p></div>
+              </div>
+            </div>
+
+            <div class="menu-section">
+              <h3>Desserts, Drinks &amp; Specials</h3>
+              <div class="menu-list">
+                <div class="item"><div class="item-head"><strong>Chocolate Pizza Cookie</strong><span class="price">$7.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Chocolate Brownie</strong><span class="price">$4.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Mango Lassi</strong><span class="price">$5.17</span></div></div>
+                <div class="item"><div class="item-head"><strong>Cup Soda</strong><span class="price">$2.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Bottled Soda</strong><span class="price">$3.29</span></div></div>
+                <div class="item"><div class="item-head"><strong>Can Soda</strong><span class="price">$3.15</span></div></div>
+                <div class="item"><div class="item-head"><strong>Water Bottle / Fiji</strong><span class="price">$2.25</span></div></div>
+                <div class="item"><div class="item-head"><strong>Canada Dry (Bottle)</strong><span class="price">$3.59</span></div></div>
+                <div class="item"><div class="item-head"><strong>Gatorade</strong><span class="price">$3.49</span></div></div>
+                <div class="item"><div class="item-head"><strong>Coca‑Cola (2 Ltr)</strong><span class="price">$4.49</span></div></div>
+                <div class="item"><div class="item-head"><strong>Oreo Shake</strong><span class="price">$7.24</span></div></div>
+                <div class="item"><div class="item-head"><strong>Kit‑Kat Shake</strong><span class="price">$7.24</span></div></div>
+                <div class="item"><div class="item-head"><strong>Blue Curacao Mojito</strong><span class="price">$7.99</span></div></div>
+                <div class="item"><div class="item-head"><strong>Strawberry Mojito</strong><span class="price">$7.99</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="special-banner card">
+          <div>
+            <div class="tagline">House special</div>
+            <h3>Family Feast</h3>
+            <p>1 extra large pizza + 8 pcs chicken wings or cauliflower wings + 1 masala fries + 2 litre Coke bottle.</p>
+          </div>
+          <a class="btn btn-primary" href="tel:+19092449752">$49.99 • Call to Order</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Real <span>gallery</span></h2>
+      <p class="section-sub">Your own food and interior photos are built in here so the brand feels real, local and premium from the first scroll.</p>
+      <div class="gallery-grid">
+        <div class="tile large"><img src="assets/interior.jpeg" alt="Restaurant interior"><div class="caption">Dine‑in ambience</div></div>
+        <div class="tile"><img src="assets/featured-pizza.jpeg" alt="Loaded fusion pizza"><div class="caption">Signature pizza</div></div>
+        <div class="tile"><img src="assets/pasta.jpeg" alt="Pesto pasta"><div class="caption">Pesto pasta</div></div>
+        <div class="tile"><img src="assets/shake.jpeg" alt="Oreo shake"><div class="caption">Dessert &amp; shake</div></div>
+        <div class="tile"><img src="assets/gallery-mojitos.jpeg" alt="Pizza with mojitos"><div class="caption">Pizza &amp; mojitos</div></div>
+        <div class="tile"><img src="assets/gallery-slice.jpeg" alt="Slice with drinks"><div class="caption">Late-night bites</div></div>
+        <div class="tile"><img src="assets/gallery-pizza-mix.jpeg" alt="Mixed pizza platter"><div class="caption">Mixed pizza platter</div></div>
+        <div class="tile"><img src="assets/gallery-spread.jpeg" alt="Full table spread"><div class="caption">Family table spread</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="container contact-grid">
+      <div class="contact-card card">
+        <h3>Visit Kohinoor Bites</h3>
+        <p class="lineitem"><span class="label">Address</span>7201 Archibald Ave Ste 8, Rancho Cucamonga, CA 91701</p>
+        <p class="lineitem"><span class="label">Phone</span><a href="tel:+19092449752" style="text-decoration:none;">+1 (909) 244-9752</a></p>
+        <p class="lineitem"><span class="label">Email</span><a href="mailto:kohinoorbitesss@gmail.com" style="text-decoration:none;">kohinoorbitesss@gmail.com</a></p>
+        <p class="lineitem"><span class="label">Hours</span>Mon–Thu: 11:00 AM – 9:00 PM<br>Fri–Sun: 11:00 AM – 9:30 PM</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://share.google/07hbToLA1qEapYnTR" target="_blank" rel="noopener">Google Location</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/kohinoor_bitezz?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <iframe class="map" loading="lazy" src="https://maps.google.com/maps?q=7201%20Archibald%20Ave%20Ste%208%2C%20Rancho%20Cucamonga%2C%20CA%2091701&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Map to Kohinoor Bites"></iframe>
+      </div>
+
+      <div class="form-card card about-card">
+        <h3>Booking &amp; inquiry form</h3>
+        <p>Use this form for reservations, catering inquiries, order questions or special requests. Every request goes to <strong>kohinoorbitesss@gmail.com</strong>.</p>
+        <form action="https://formsubmit.co/kohinoorbitesss@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Kohinoor Bites Booking Request" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <div class="row2">
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="tel" name="phone" placeholder="Phone number" required>
+          </div>
+          <div class="row2">
+            <input type="date" name="date">
+            <input type="time" name="time">
+          </div>
+          <div class="row2">
+            <select name="guests">
+              <option value="">Guests</option>
+              <option>1-2</option>
+              <option>3-4</option>
+              <option>5-8</option>
+              <option>9+</option>
+            </select>
+            <input type="email" name="email" placeholder="Email address">
+          </div>
+          <textarea name="message" placeholder="Special request, catering, order question or booking details"></textarea>
+          <button class="btn btn-primary" type="submit">Send Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Kohinoor Bites Pizza &amp; More. All rights reserved.</div>
+      <div class="credit-box">
+        <div><a href="tel:+19092449752">Call</a> · <a href="mailto:kohinoorbitesss@gmail.com">Business Email</a> · <a href="https://www.instagram.com/kohinoor_bitezz?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">Business Instagram</a> · <a href="https://share.google/07hbToLA1qEapYnTR" target="_blank" rel="noopener">Location</a></div>
+        <div class="small" style="margin-top:8px;">© Kohinoor Bites Pizza &amp; More &nbsp; • &nbsp; Site designed by <strong>Mayank Sharma</strong> &nbsp; • &nbsp; <a href="https://www.instagram.com/this.is_mayank_?igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener">Mayank Instagram</a> &nbsp; • &nbsp; <a href="mailto:sharma0mayank786@gmail.com">Mayank Email</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
